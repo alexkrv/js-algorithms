@@ -1,0 +1,1 @@
+Simple JS playground for algorithms 
