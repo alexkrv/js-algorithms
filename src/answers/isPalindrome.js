@@ -1,9 +1,7 @@
-function isPalindrome( text ) {
-    let arr = text.split('')
+function isPalindrome( string ) {
+    let arr = string.toLowerCase().split(''),
+        alphabetArr = 'abcdefghijklmnopqrstuvwxyz'.split(''),
+        noPunctuationArr = arr.filter( el => alphabetArr.indexOf( el ) > -1 )
 
-    if( arr.length % 2 === 0 ) {
-      return arr.slice(0, arr.length/2 ).join('') == arr.slice(arr.length/2 ).reverse().join('')
-    } else {
-
-    }
+        return noPunctuationArr.join('') == noPunctuationArr.reverse().join('')
 }
