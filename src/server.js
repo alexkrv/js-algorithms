@@ -25,6 +25,11 @@ app.get('/api/get_number', function (req, res) {
     res.send( String( Math.floor( number ) ) )
 });
 
+app.get('/api/get_error', function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.sendStatus(404)
+});
+
 app.get('/api/get-product/:id', function (req, res) {
   var product = [];
   console.log(product);
@@ -39,6 +44,6 @@ app.get('/api/get-product/:id', function (req, res) {
 app.post('/api/edit-product/:id', function (req, res) {
   var targetInd = []
 
-  console.log("targetInd",targetInd,"wholeProductsList",wholeProductsList[0]);
+  console.log("targetInd",targetInd,"wholeProductsList",[]);
   res.send('post data');
 })

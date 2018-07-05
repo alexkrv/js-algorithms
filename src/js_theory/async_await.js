@@ -5,6 +5,21 @@ async function simpleFunction() {
     return x1 + x2
 }
 
+async function simpleErrorFunction() {
+
+    try{
+        let answer = await fetchError();
+    }catch( error ){
+        console.error( "This is error", error )
+    }
+}
+
+function fetchError(){
+    return new Promise( ( resolve, reject ) => {
+        window.setTimeout( () => reject( {'error': '404'} ), 1000)
+    } )
+}
+
 function fetchData( url ){
     return new Promise( (resolve, reject ) => {
         let xhr = new XMLHttpRequest()
