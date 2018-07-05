@@ -20,11 +20,9 @@ app.listen(3012, function () {
 });
 
 app.get('/api/get_number', function (req, res) {
-    //setTimeout( ()=> res.send( Math.random() ), 2000 )
-    // console.log(res.header)
     res.header('Access-Control-Allow-Origin', '*')
-    console.log('HI')
-    res.send( "HI" )
+    let number = Math.random()*100
+    res.send( String( Math.floor( number ) ) )
 });
 
 app.get('/api/get-product/:id', function (req, res) {
