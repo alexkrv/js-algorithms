@@ -1,13 +1,25 @@
 function maxStockProfit( arr ) {
-    let min = 1;
-    let max = 1;
+    let buyPrice = 0;
+    let sellPrice = 0;
+    let maxProfit = -1;
+    let changeByPrice = true;
 
     for( let i = 0; i < arr.length; i++ ) {
-        if( min > arr[i] )
-            min = arr[i];
-        if( max < arr[i] )
-            max = arr[i];
+        if( changeByPrice ) {
+            buyPrice = arr[i]
+        }
+        sellPrice = arr[i+1]
+
+        if( sellPrice < buyPrice ) {
+            changeByPrice = true
+        } else {
+            let tmp = sellPrice - buyPrice
+            if( tmp > maxProfit ) {
+                maxProfit = tmp
+            }
+            changeByPrice = false;
+        }
     }
 
-    return max - min > 0 ? max - min : -1
+    return maxProfit;
 }
